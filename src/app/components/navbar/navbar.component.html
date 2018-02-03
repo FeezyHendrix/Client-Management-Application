@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container">
+  <a class="navbar-brand" href="#">Sevana Client Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto" *ngIf="isLoggedIn">
+      <li class="nav-item-active">
+        <a href="#" routerLink="/" class="nav-link">Dashboard</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item active" *ngIf="!isLoggedIn">
+        <a class="nav-link" href="#"  routerLink="/login" [hidden]="showRegister">Login </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"*ngIf="!isLoggedIn" routerLink="/register" [hidden]="showRegister">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"*ngIf="isLoggedIn">{{loggedInUser}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"*ngIf="isLoggedIn" routerLink="/settings">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"*ngIf="isLoggedIn" (click)="onLogOut()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav> 
+<br><br>

@@ -1,0 +1,11 @@
+<form class="form-signin" (submit)="onSubmit()" >
+  <h1 class="h3 mb-3 font-weight-normal">Sevana Client Manager</h1>
+  <h1 class="h5 mb-3 font-weight-normal">Please Sign Up</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" required>
+ 
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  <p class="mt-5 mb-3 text-muted">&copy; Sevana Client Manager 2017-2018</p>
+</form>

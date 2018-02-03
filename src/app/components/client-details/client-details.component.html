@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink = "/" href="" class="btn btn-link"> <i class="fa fa-arrow-circle-o-left">&nbsp;Back To Dashboard</i></a>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a [routerLink]= "['/edit-client/' + id ]" href="#" class="btn btn-light">Edit</a>
+      <button class="btn btn-danger" type="button" (click)="onDeleteClient()">Delete</button>
+  </div>
+  </div>
+</div>
+<hr>
+<div *ngIf="client" class="card">
+  <h3 class="card-header">{{client.firstname}} {{client.lastname}}</h3>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Contact  InFormation</h4>
+      </div>
+      <div class="col-md-4">
+      <h3 class="pull-right">
+        Balance: 
+        <span [class.text-danger]="hasBoolean" [class.text-success]="!hasBoolean">
+          {{client.balance | currency:"USD":true}}
+        </span>
+        <small>
+          <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput"><i class="fa fa-pencil"></i>
+          </a>
+        </small>
+      </h3>
+      <div class="clearfix">
+        <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)" class="form-inline pull-right">
+          <div class="form-group">
+            <input type="text" [(ngModel)]="client.balance" name="balance" class="form-control">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <br>
+          </div>
+        </form>
+      </div>     
+      </div>  
+    </div>
+    <hr>
+    <br>
+    <ul class="list-group">
+      <li class="list-group-item">Contact Email: {{client.email}} <span class="pull-right"> <a [href]="'mailto:' + client.email"class="btn btn-success">Send Email</a> </span></li>
+      <li class="list-group-item">Contact Phone: {{client.phone}} <span class="pull-right"> <a [href]="'tel:' + client.phone" class="btn btn-success">Call Client</a></span></li>
+    </ul>
+    </div>
+</div>
