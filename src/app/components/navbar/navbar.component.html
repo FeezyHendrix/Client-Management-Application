@@ -11,20 +11,20 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" >
-      <li class="nav-item active" *ngIf="!isLoggedIn">
-        <a class="nav-link" href="#"  routerLink="/login" [hidden]="showRegister">Login </a>
+      <li class="nav-item active" *ngIf="!isLoggedIn && showRegister">
+        <a class="nav-link" href="#"  routerLink="/login" >Login </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"*ngIf="!isLoggedIn" routerLink="/register" [hidden]="showRegister">Register</a>
+      <li class="nav-item" *ngIf="!isLoggedIn && showRegister">
+        <a class="nav-link" href="#" routerLink="/register">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"*ngIf="isLoggedIn">{{loggedInUser}}</a>
+      <li class="nav-item" *ngIf="isLoggedIn" >
+        <a class="nav-link" href="#" >{{loggedInUser}}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"*ngIf="isLoggedIn" routerLink="/settings">Settings</a>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" href="#" routerLink="/settings">Settings</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"*ngIf="isLoggedIn" (click)="onLogOut()">Logout</a>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" href="#" (click)="onLogOut()">Logout</a>
       </li>
     </ul>
   </div>
